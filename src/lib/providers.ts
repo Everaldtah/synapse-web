@@ -498,3 +498,7 @@ export function getProviderById(id: string): APIProviderInfo | undefined {
 export function isOnDeviceProvider(id: string): boolean {
   return ON_DEVICE_MODELS.some(p => p.id === id)
 }
+
+export function getOnDeviceProviders(): APIProviderInfo[] {
+  return ON_DEVICE_MODELS
+}

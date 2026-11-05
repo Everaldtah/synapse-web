@@ -13,6 +13,8 @@ import {
   ChevronLeft,
   Menu,
   LogOut,
+  GitGraph,
+  Bot,
 } from 'lucide-react'
 
 export default async function WorkspaceLayout({
@@ -40,6 +42,18 @@ export default async function WorkspaceLayout({
           <Link href="/workspace" className={`synapse-page-tree-item ${true ? 'active' : ''} flex items-center gap-3`}>
             <LayoutDashboard className="w-5 h-5" />
             <span>Home</span>
+          </Link>
+          <Link href="/workspace/models" className="synapse-page-tree-item flex items-center gap-3">
+            <Bot className="w-5 h-5 text-[#6E56CF]" />
+            <span>Models</span>
+          </Link>
+          <Link href="/workspace/agents" className="synapse-page-tree-item flex items-center gap-3">
+            <Bot className="w-5 h-5" />
+            <span>Agents</span>
+          </Link>
+          <Link href="/workspace/graph" className="synapse-page-tree-item flex items-center gap-3">
+            <GitGraph className="w-5 h-5" />
+            <span>Graph View</span>
           </Link>
           <Link href="/workspace/search" className="synapse-page-tree-item flex items-center gap-3">
             <Search className="w-5 h-5" />
