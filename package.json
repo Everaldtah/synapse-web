@@ -1,0 +1,44 @@
+{
+  "name": "synapse-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:push": "tsx scripts/db-push.ts",
+    "db:seed": "tsx scripts/db-seed.ts",
+    "db:generate": "tsx scripts/db-generate.ts",
+    "db:migrate": "tsx scripts/db-migrate.ts",
+    "import:workspace": "tsx scripts/import-workspace.ts"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "7.9.24",
+    "@neondatabase/serverless": "1.2.0",
+    "@types/uuid": "^10.0.0",
+    "@vercel/blob": "2.8.2",
+    "dotenv": "^18.0.9",
+    "drizzle-orm": "^0.39.0",
+    "fflate": "0.8.3",
+    "lucide-react": "1.68.0",
+    "next": "15.5.29",
+    "postgres": "4.0.0",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
+    "svix": "^1.37.0",
+    "tailwindcss": "^4.3.4",
+    "uuid": "^14.0.3",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "drizzle-kit": "^0.30.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.5.29",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
