@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "7.9.24",
-    "@neondatabase/serverless": "1.2.0",
+    "@neondatabase/serverless": "^0.10.4",
     "@types/uuid": "^10.0.0",
     "@vercel/blob": "2.8.2",
     "dotenv": "^18.0.9",

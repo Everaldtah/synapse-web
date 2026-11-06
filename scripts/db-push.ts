@@ -19,7 +19,7 @@ async function main() {
 
   console.log('Pushing schema to database...')
 
-  // Read and execute migration files manually using sql.unsafe for raw SQL
+  // Read and execute migration files manually using sql for raw SQL
   const migrationsDir = './drizzle'
   const files = fs.readdirSync(migrationsDir).filter(f => f.endsWith('.sql')).sort()
 
@@ -30,7 +30,8 @@ async function main() {
     const statements = sqlContent.split('--> statement-breakpoint').filter(s => s.trim())
     for (const statement of statements) {
       if (statement.trim()) {
-        await sql.unsafe(statement.trim())
+        // Use ordinary function call syntax for raw SQL (compatible with @neondatabase/serverless 0.10.4)
+        await sql(statement.trim(), [])
       }
     }
   }
