@@ -28,7 +28,7 @@ export default async function FavoritesPage() {
     .select()
     .from(preferences)
     .where(and(
-      eq((preferences as any).userId, userId),
+      eq((preferences as any).userId, result.user.id),
       eq((preferences as any).key, 'favorites')
     ))
     .limit(1)

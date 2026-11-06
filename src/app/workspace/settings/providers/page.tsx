@@ -28,7 +28,7 @@ export default async function SettingsProvidersPage() {
     .select()
     .from(preferences)
     .where(and(
-      eq((preferences as any).userId, userId),
+      eq((preferences as any).userId, result.user.id),
       eq((preferences as any).key, 'api_keys')
     ))
     .limit(1)

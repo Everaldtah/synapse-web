@@ -17,6 +17,12 @@ import {
   Code2,
   Smartphone,
   Monitor,
+  GitGraph,
+  Brain,
+  Search,
+  Terminal,
+  FileText,
+  Link as LinkIcon,
 } from 'lucide-react'
 import Image from 'next/image'
 
@@ -163,6 +169,47 @@ export default async function HomePage() {
           </div>
         </section>
 
+        {/* AI Hub / All Models / Agents / Graph View preview */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 bg-white dark:bg-gray-950">
+          <div className="text-center max-w-3xl mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mb-4">AI Hub — All models, agents, and tools in one place</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">Switch between 16+ free providers, paid models, and on-device AI. Build custom agents with web search, shell, and file tools. Visualize your knowledge with Obsidian-style Graph View.</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            <AIFeatureCard
+              icon={Brain}
+              title="AI Hub"
+              description="Unified chat interface with all your models. Switch providers mid-conversation. Stream responses, manage contexts, and use tools."
+              color="text-[#6E56CF]"
+            />
+            <AIFeatureCard
+              icon={Globe}
+              title="16+ Free Providers"
+              description="Groq, Gemini, NVIDIA, OpenRouter, Mistral, Cloudflare, Z.ai, Cohere, OVH, LLM7, Kilo, Requesty, Vercel AI Gateway, SambaNova, Ollama, Pollinations."
+              color="text-[#E2A7F0]"
+            />
+            <AIFeatureCard
+              icon={Terminal}
+              title="Custom Agents"
+              description="Build agents with web search, shell execution, and file tools. Define capabilities, system prompts, and connect to any model."
+              color="text-[#6E56CF]"
+            />
+            <AIFeatureCard
+              icon={GitGraph}
+              title="Obsidian Graph View"
+              description="Force-directed graph visualization of your pages and links. Zoom, pan, search, filter by tags, and explore your knowledge network."
+              color="text-[#E2A7F0]"
+            />
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            <ProviderCardList title="Paid Providers" providers={['xAI', 'DeepSeek', 'Moonshot', 'Cerebras', 'Together', 'Fireworks', 'HuggingFace', 'DashScope', 'OpenAI']} color="text-amber-500" />
+            <ProviderCardList title="On-Device Models" providers={['Apple Foundation', 'Apple Speech', 'Synapse Alpha 1.0 (MLX)', 'Qwen3-4B', 'Llama-3.2-3B', 'Phi-4-mini', 'Qwen3-1.7B']} color="text-green-500" />
+            <ProviderCardList title="Agent Capabilities" providers={['Web Search', 'Shell Commands', 'File Read/Write', 'Code Execution', 'API Calls', 'Data Analysis']} color="text-blue-500" />
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="glass rounded-3xl p-8 md:p-12 max-w-2xl mx-auto text-center border border-white/60 dark:border-gray-800/60 shadow-glow">
@@ -252,6 +299,47 @@ function AppPreviewCard({
       </div>
       <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100">{title}</h4>
       <p className="text-xs text-gray-500 dark:text-gray-400">{subtitle}</p>
+    </div>
+  )
+}
+
+function AIFeatureCard({
+  icon: Icon,
+  title,
+  description,
+  color,
+}: {
+  icon: React.ComponentType<{ className?: string }>
+  title: string
+  description: string
+  color: string
+}) {
+  return (
+    <div className="synapse-card p-6 h-full hover:shadow-card transition-all duration-300 group">
+      <div className="w-12 h-12 bg-[#6E56CF]/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-[#6E56CF]/20 transition-colors">
+        <Icon className="w-6 h-6 text-[#6E56CF] group-hover:text-[#6E56CF] transition-colors" />
+      </div>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{title}</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{description}</p>
+    </div>
+  )
+}
+
+function ProviderCardList({ title, providers, color }: { title: string; providers: string[]; color: string }) {
+  return (
+    <div className="synapse-card p-6 h-full">
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+        <span className={`w-2 h-2 rounded-full ${color}`}></span>
+        {title}
+      </h3>
+      <ul className="space-y-2">
+        {providers.map((provider, i) => (
+          <li key={i} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+            <span className={`w-1.5 h-1.5 rounded-full ${color}`}></span>
+            {provider}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

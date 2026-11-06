@@ -36,7 +36,7 @@ export default async function ExportPage() {
   const allPrefs = await db
     .select()
     .from(preferences)
-    .where(eq((preferences as any).userId, userId))
+    .where(eq((preferences as any).userId, result.user.id))
 
   const exportData = {
     workspace: { id: workspace.id, name: workspace.name },

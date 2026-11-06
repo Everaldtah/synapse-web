@@ -27,7 +27,7 @@ export default async function SettingsApiKeysPage() {
     .select()
     .from(preferences)
     .where(and(
-      eq((preferences as any).userId, userId),
+      eq((preferences as any).userId, result.user.id),
       eq((preferences as any).key, 'custom_api_keys')
     ))
     .limit(1)

@@ -87,11 +87,8 @@ export default async function WorkspaceLayout({
         </div>
       </aside>
 
-      <div className="flex-1 flex flex-col min-w-0 relative">
-        <header className="lg:hidden p-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between shrink-0 z-20">
-          <button className="lg:hidden p-2 text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
-            <Menu className="w-5 h-5" />
-          </button>
+      <div className="flex-1 flex flex-col min-w-0 relative lg:ml-72">
+        <header className="lg:hidden p-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between shrink-0 z-20 sticky top-0">
           <Link href="/workspace" className="flex items-center gap-2">
             <BookOpen className="w-6 h-6 text-[#6E56CF]" />
             <span className="text-lg font-bold tracking-tight gradient-text">Synapse</span>
